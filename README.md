@@ -7,7 +7,7 @@
 <p align="center">A secure socks5 proxy, designed to protect your Internet traffic.</p>
 
 <p align="center">
-    <a href="https://ghcr.io/akafeng/shadowsocks-rust">Docker Hub</a> ·
+    <a href="https://ghcr.io/akafeng/shadowsocks-rust">Container Registry</a> ·
     <a href="https://github.com/shadowsocks/shadowsocks-rust">Project Source</a>
 </p>
 
