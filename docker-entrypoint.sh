@@ -31,6 +31,7 @@ echo ""
 echo "\033[32m [!] Server Port:\033[0m ${SERVER_PORT}"
 echo "\033[32m [!] Encryption Method:\033[0m ${METHOD}"
 echo "\033[32m [!] Password:\033[0m ${PASSWORD}"
+echo "\033[32m [!] DNS Server:\033[0m ${DNS}"
 if [ ! -z "${OBFS}" ]; then
     echo "\033[32m [!] Plugin:\033[0m ${OBFS}"
 fi
@@ -42,6 +43,7 @@ ssserver \
 --password "${PASSWORD}" \
 --encrypt-method "${METHOD}" \
 --timeout "${TIMEOUT}" \
+--dns "${DNS}" \
 -U \
 --tcp-fast-open \
 --tcp-no-delay \

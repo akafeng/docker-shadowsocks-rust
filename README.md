@@ -30,6 +30,7 @@
 | PASSWORD | [RANDOM] |
 | METHOD | aes-256-gcm |
 | TIMEOUT | 300 |
+| DNS | 8.8.8.8,8.8.4.4 |
 | OBFS | - |
 | PLUGIN | - |
 | PLUGIN_OBFS | - |
@@ -61,6 +62,7 @@ $ docker logs shadowsocks
  [!] Server Port: 8388
  [!] Encryption Method: aes-256-gcm
  [!] Password: TO56uVUvDMGe64Ss
+ [!] DNS Server: 8.8.8.8,8.8.4.4
  [+] Enjoy :)
 
  2022-12-08T00:00:00.454882928+00:00 INFO  shadowsocks server 1.14.3 build 2022-04-04T17:10:43.001666678+00:00
