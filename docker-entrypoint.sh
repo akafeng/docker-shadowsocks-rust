@@ -2,7 +2,23 @@
 set -e
 
 if [ -z "${PASSWORD}" ]; then
-    PASSWORD=`tr -dc A-Za-z0-9 </dev/urandom | head -c 16`
+    PASSWORD="$(ssservice genkey --encrypt-method "${METHOD}")"
+fi
+
+SERVER_DNS=""
+if [ ! -z "${DNS}" ]; then
+    SERVER_DNS="--dns ${DNS}"
+fi
+
+SERVER_NETWORK=""
+if [ ! -z "${NETWORK}" ]; then
+    if [ "${NETWORK}" == "tcp_and_udp" ]; then
+        SERVER_NETWORK="-U"
+    fi
+
+    if [ "${NETWORK}" == "udp" ]; then
+        SERVER_NETWORK="-u"
+    fi
 fi
 
 if [ ! -z "${OBFS}" ]; then
@@ -31,7 +47,9 @@ echo ""
 echo "\033[32m [!] Server Port:\033[0m ${SERVER_PORT}"
 echo "\033[32m [!] Encryption Method:\033[0m ${METHOD}"
 echo "\033[32m [!] Password:\033[0m ${PASSWORD}"
-echo "\033[32m [!] DNS Server:\033[0m ${DNS}"
+if [ ! -z "${DNS}" ]; then
+    echo "\033[32m [!] DNS Server:\033[0m ${DNS}"
+fi
 if [ ! -z "${OBFS}" ]; then
     echo "\033[32m [!] Plugin:\033[0m ${OBFS}"
 fi
@@ -43,9 +61,9 @@ ssserver \
 --password "${PASSWORD}" \
 --encrypt-method "${METHOD}" \
 --timeout "${TIMEOUT}" \
---dns "${DNS}" \
--U \
 --tcp-fast-open \
 --tcp-no-delay \
+${SERVER_DNS} \
+${SERVER_NETWORK} \
 ${SERVER_PLUGIN} \
 "$@"

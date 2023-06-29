@@ -1,6 +1,6 @@
-FROM debian:bullseye-slim AS builder
+FROM debian:bookworm-slim AS builder
 
-ARG SS_VERSION="1.14.3"
+ARG SS_VERSION="1.15.3"
 ARG SS_URL="https://github.com/shadowsocks/shadowsocks-rust/releases/download/v${SS_VERSION}/"
 
 ARG V2RAY_PLUGIN_VERSION="1.3.2"
@@ -37,14 +37,15 @@ RUN set -eux \
 
 ######
 
-FROM debian:bullseye-slim
+FROM debian:bookworm-slim
 
 ENV SERVER_ADDR="0.0.0.0"
 ENV SERVER_PORT="8388"
 ENV PASSWORD=
 ENV METHOD="aes-256-gcm"
 ENV TIMEOUT="300"
-ENV DNS="8.8.8.8,8.8.4.4"
+ENV DNS=
+ENV NETWORK=
 ENV OBFS=
 ENV PLUGIN=
 ENV PLUGIN_OPTS=

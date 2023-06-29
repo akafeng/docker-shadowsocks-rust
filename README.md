@@ -30,7 +30,8 @@
 | PASSWORD | [RANDOM] |
 | METHOD | aes-256-gcm |
 | TIMEOUT | 300 |
-| DNS | 8.8.8.8,8.8.4.4 |
+| DNS | - |
+| NETWORK | - |
 | OBFS | - |
 | PLUGIN | - |
 | PLUGIN_OBFS | - |
