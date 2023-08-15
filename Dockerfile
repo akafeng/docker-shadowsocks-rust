@@ -1,6 +1,6 @@
 FROM debian:bookworm-slim AS builder
 
-ARG SS_VERSION="1.15.3"
+ARG SS_VERSION="1.15.4"
 ARG SS_URL="https://github.com/shadowsocks/shadowsocks-rust/releases/download/v${SS_VERSION}/"
 
 ARG V2RAY_PLUGIN_VERSION="1.3.2"
